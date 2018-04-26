@@ -25,7 +25,6 @@ export default async function(user: User, client: Client) {
 	const react = await promptMsg.awaitReactions((reaction: MessageReaction, reactor: User) =>
 		ReactList.indexOf(reaction.emoji.toString()) >= 0 && reactor.id == user.id,
 	{max: 1});
-	console.log(react.first().emoji.toString());
 	switch (react.first().emoji.toString()) {
 		case Reacts.Edit:
 		case Reacts.Delete:
