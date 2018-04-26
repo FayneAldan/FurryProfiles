@@ -1,11 +1,11 @@
 import { PermissionResolvable } from 'discord.js';
-import { CommandoClient, util } from 'discord.js-commando';
+import { Client, util } from 'discord.js-commando';
 import token from './token';
 import handleDM from './handle/cmdDM';
 import handleGuild from './handle/cmdGuild';
 import FileProvider from './FileProvider';
 
-const client = new CommandoClient({
+const client = new Client({
 	owner: '157917665162297344'
 });
 let inviteLink = "Not yet generated";

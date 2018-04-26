@@ -1,5 +1,8 @@
-import { User, MessageEmbed, version as discordJSVersion, Message, MessageReaction } from 'discord.js';
-import { CommandoClient, version as commandoVersion } from 'discord.js-commando';
+import { User, MessageEmbed, Message, MessageReaction } from 'discord.js';
+import { Client } from 'discord.js-commando';
+
+import { version as discordJSVersion } from 'discord.js';
+import { version as commandoVersion } from 'discord.js-commando';
 
 const enum Reacts {
 	Edit = "✏",
@@ -10,7 +13,7 @@ const ReactList: string[] = [
 	Reacts.Edit, Reacts.Delete, Reacts.About
 ];
 
-export default async function(user: User, client: CommandoClient) {
+export default async function(user: User, client: Client) {
 	let prompt = getPrompt(client);
 	let about = getAbout(client);
 
@@ -32,7 +35,7 @@ export default async function(user: User, client: CommandoClient) {
 	}
 }
 
-function getPrompt(client: CommandoClient) {
+function getPrompt(client: Client) {
 	let ret = new MessageEmbed();
 	ret.setTitle("Furry Profiles");
 	ret.setDescription("Would you like to edit your profile?");
@@ -42,7 +45,7 @@ function getPrompt(client: CommandoClient) {
 	return ret;
 }
 
-function getAbout(client: CommandoClient) {
+function getAbout(client: Client) {
 	let ret = new MessageEmbed();
 	const owner: User = client.owners[0];
 	if (owner)

@@ -1,9 +1,9 @@
 import { Message, MessageMentions, GuildChannel, User } from 'discord.js';
 import createProfile from './createProfile';
-import { CommandoClient } from 'discord.js-commando';
+import { Client } from 'discord.js-commando';
 const { USERS_PATTERN } = MessageMentions;
 
-export default function handleGuild(msg: Message, client: CommandoClient) {
+export default function handleGuild(msg: Message, client: Client) {
 	// Only respond if bot is mentioned
 	if (!msg.mentions.users.has(client.user.id)) return;
 	// Message must only contain mentions
@@ -20,6 +20,6 @@ export default function handleGuild(msg: Message, client: CommandoClient) {
 		createProfile(msg.author, client);
 }
 
-async function showProfile(msg: Message, user: User, client: CommandoClient) {
+async function showProfile(msg: Message, user: User, client: Client) {
 	await msg.reply("Not yet implemented.");
 }

@@ -1,17 +1,17 @@
 import { User, Guild } from 'discord.js';
-import { SettingProvider, CommandoClient } from 'discord.js-commando';
+import { Client, SettingProvider } from 'discord.js-commando';
 import * as fs from 'fs';
 import * as path from 'path';
 import { promisify } from 'util';
 
 export default class FileProvider extends SettingProvider {
 	private settings = new Map<string, { [index: string]: any }>();
-	private client: CommandoClient;
+	private client: Client;
 
 	constructor(private baseDir = 'settings', private pretty = false) {
 		super();
 	}
-	async init(client: CommandoClient) {
+	async init(client: Client) {
 		this.client = client;
 		try {
 			await promisify(fs.mkdir)(this.baseDir);
