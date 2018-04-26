@@ -2,9 +2,9 @@
   "name": "furryprofiles",
   "version": "1.0.0",
   "description": "Discord bot to keep track of users' fursonas",
-  "main": "index.js",
+  "main": "built/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node built/index.js"
   },
   "repository": {
     "type": "git",

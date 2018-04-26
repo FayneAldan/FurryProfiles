@@ -15,9 +15,9 @@ export default function handleGuild(msg: Message, client: CommandoClient) {
 	mentions.delete(client.user.id);
 	const size = mentions.size;
 	if (size == 1)
-		createProfile(msg.author, client);
-	else if (size == 0)
 		showProfile(msg, mentions.first(), client);
+	else if (size == 0)
+		createProfile(msg.author, client);
 }
 
 async function showProfile(msg: Message, user: User, client: CommandoClient) {

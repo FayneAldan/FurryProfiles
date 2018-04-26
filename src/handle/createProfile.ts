@@ -18,9 +18,10 @@ export default async function(user: User, client: CommandoClient) {
 	const promptMsg = await dmChannel.send(prompt) as Message;
 	for (const react of ReactList)
 		await promptMsg.react(react);
-	const react = await promptMsg.awaitReactions((reaction: MessageReaction) =>
-		ReactList.indexOf(reaction.emoji.toString()) >= 0,
+	const react = await promptMsg.awaitReactions((reaction: MessageReaction, reactor: User) =>
+		ReactList.indexOf(reaction.emoji.toString()) >= 0 && reactor.id == user.id,
 	{max: 1});
+	console.log(react.first().emoji.toString());
 	switch (react.first().emoji.toString()) {
 		case Reacts.Edit:
 		case Reacts.Delete:
@@ -47,8 +48,8 @@ function getAbout(client: CommandoClient) {
 	if (owner)
 		ret.setFooter("Developed by " + owner.tag, owner.displayAvatarURL());
 	ret.setTitle("Furry Profiles");
-	ret.addField('[Node.js](https://nodejs.org)', process.version);
-	ret.addField('[Discord.js](https://discord.js.org)', discordJSVersion);
-	ret.addField('[Commando](https://discord.js.org/#/docs/commando)', commandoVersion);
-	
+	ret.addField('Node.js', process.version, true);
+	ret.addField('Discord.js', discordJSVersion, true);
+	ret.addField('Commando', commandoVersion, true);
+	return ret;
 }
