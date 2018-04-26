@@ -3,6 +3,7 @@ import { Client } from 'discord.js-commando';
 
 import { version as discordJSVersion } from 'discord.js';
 import { version as commandoVersion } from 'discord.js-commando';
+import botInvite from '../BotInvite';
 
 const enum Reacts {
 	Edit = "✏",
@@ -51,7 +52,10 @@ function getAbout(client: Client) {
 	if (owner)
 		ret.setFooter("Developed by " + owner.tag, owner.displayAvatarURL());
 	ret.setTitle("Furry Profiles");
-	const desc = `[Support Server](${client.options.invite})`;
+	let desc = `[Support Server](${client.options.invite})`;
+	const invite = botInvite();
+	if (invite)
+		desc += `\n[Add to Server](${invite})`;
 	ret.setDescription(desc);
 	ret.addField('Node.js', process.version, true);
 	ret.addField('Discord.js', discordJSVersion, true);

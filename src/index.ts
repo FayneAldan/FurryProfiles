@@ -4,25 +4,20 @@ import token from './token';
 import handleDM from './handle/cmdDM';
 import handleGuild from './handle/cmdGuild';
 import FileProvider from './FileProvider';
+import { generateInvite } from './BotInvite';
 
 const client = new Client({
 	owner: '157917665162297344',
 	unknownCommandResponse: false,
 	invite: 'https://discord.gg/QRzvckF'
 });
-let inviteLink = "Not yet generated";
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	const perms: Array<PermissionResolvable> =
 		['VIEW_CHANNEL', 'SEND_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'MANAGE_ROLES', 'ADD_REACTIONS'];
-	client.generateInvite(perms).then(link => {
-		inviteLink = link;
-		console.log('Invite link: ' + link);
-	}).catch(e => {
-		inviteLink = 'Failed to generate';
-		console.warn('Failed to generate invite link!');
-		console.warn(e);
+	generateInvite(client, perms).then(invite => {
+		console.log('Invite link: ' + invite);
 	});
 });
 
