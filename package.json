@@ -4,7 +4,8 @@
   "description": "Discord bot to keep track of users' fursonas",
   "main": "built/index.js",
   "scripts": {
-    "start": "tsc && node built/index.js"
+    "start": "built/index.js",
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@types/node": "^9.6.6",
     "discord.js": "github:discordjs/discord.js",
-    "discord.js-commando": "github:discordjs/Commando"
+    "discord.js-commando": "github:discordjs/Commando",
+    "typescript": "^2.8.3"
   }
 }

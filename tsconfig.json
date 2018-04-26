@@ -2,9 +2,13 @@
 	"compilerOptions": {
 		"outDir": "built",
 		"target": "es6",
-		"module": "commonjs"
+		"module": "commonjs",
+		"sourceMap": true
 	},
 	"include": [
-		"./src/**/*"
+		"src/**/*"
+	],
+	"exclude": [
+		"src/token.example.ts"
 	]
 }
