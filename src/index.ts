@@ -6,7 +6,9 @@ import handleGuild from './handle/cmdGuild';
 import FileProvider from './FileProvider';
 
 const client = new Client({
-	owner: '157917665162297344'
+	owner: '157917665162297344',
+	unknownCommandResponse: false,
+	invite: 'https://discord.gg/QRzvckF'
 });
 let inviteLink = "Not yet generated";
 

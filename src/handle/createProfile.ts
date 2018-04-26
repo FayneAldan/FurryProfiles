@@ -51,6 +51,8 @@ function getAbout(client: Client) {
 	if (owner)
 		ret.setFooter("Developed by " + owner.tag, owner.displayAvatarURL());
 	ret.setTitle("Furry Profiles");
+	const desc = `[Support Server](${client.options.invite})`;
+	ret.setDescription(desc);
 	ret.addField('Node.js', process.version, true);
 	ret.addField('Discord.js', discordJSVersion, true);
 	ret.addField('Commando', commandoVersion, true);
