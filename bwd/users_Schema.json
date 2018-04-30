@@ -1,0 +1,23 @@
+{
+	"type": "Folder",
+	"color": {
+		"type": "integer",
+		"min": 0,
+		"max": 16777215,
+		"configurable": true
+	},
+	"species": {
+		"type": "string",
+		"array": true,
+		"default": [],
+		"configurable": true
+	},
+	"gender": {
+		"type": "string",
+		"configurable": true
+	},
+	"sexuality": {
+		"type": "string",
+		"configurable": true
+	}
+}

@@ -2,10 +2,9 @@
   "name": "furryprofiles",
   "version": "1.0.0",
   "description": "Discord bot to keep track of users' fursonas",
-  "main": "built/index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "built/index.js",
-    "prepare": "tsc"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,9 @@
   },
   "homepage": "https://github.com/FayneAldan/FurryProfiles#readme",
   "dependencies": {
-    "@types/node": "^9.6.6",
     "discord.js": "github:discordjs/discord.js",
-    "discord.js-commando": "github:discordjs/Commando",
-    "typescript": "^2.8.3"
-  }
+    "klasa": "github:dirigeants/klasa",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {}
 }
