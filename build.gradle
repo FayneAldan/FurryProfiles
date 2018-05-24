@@ -1,0 +1,18 @@
+plugins {
+  id 'com.sedmelluq.jdaction' version '1.0.2'
+}
+
+apply plugin: 'application'
+mainClassName = 'io.github.faynealdan.furryprofiles.Bot'
+
+dependencies {
+  compile 'com.jagrosh:jda-utilities:2.1.1'
+  compile 'net.dv8tion:JDA:3.6.0_361'
+  compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+  compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
+  compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.0'
+}
+
+repositories {
+    jcenter()
+}
